@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CollabTask - Shared Task Management for Teams 🚀
 
 **CollabTask** solves the core problem of teams losing track of *"who's doing what, by when"* by providing a shared task list with clear time estimates and progress tracking, synced between iOS and Strapi.
@@ -209,3 +210,6 @@ This project is part of the CollabTask development initiative following the stra
 ---
 
 **🎯 CollabTask is strategically planned, technically architected, and ready for the next phase of development!**
+=======
+# collabTask
+>>>>>>> 951cda6caaa5db8929cd6af2eed714e3f4014da1
