@@ -1,0 +1,31 @@
+{
+  "name": "collabtask-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CollabTask Strapi CMS Backend",
+  "scripts": {
+    "build": "strapi build",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/strapi": "4.15.0",
+    "@strapi/plugin-users-permissions": "4.15.0",
+    "@strapi/plugin-i18n": "4.15.0",
+    "pg": "8.11.3",
+    "sqlite3": "5.1.6"
+  },
+  "author": {
+    "name": "CollabTask Team"
+  },
+  "strapi": {
+    "uuid": "collabtask-strapi-uuid"
+  },
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

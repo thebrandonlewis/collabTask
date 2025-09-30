@@ -1,0 +1,409 @@
+# CollabTask Actions Contract
+# Feature Planning → actions.yml Mapping
+
+project:
+  name: "CollabTask"
+  description: "Shared task management for teams"
+  version: "1.0.0"
+  status: "implementation_ready"
+
+# Core Actions from Feature Roadmap
+actions:
+  # Phase 0-2: Foundation Actions
+  foundation:
+    - id: "setup_repository"
+      name: "Set up project repository"
+      description: "Initialize Git repository with proper structure"
+      priority: "P0"
+      phase: "Foundation"
+      estimated_hours: 2
+      dependencies: []
+      deliverables:
+        - "Git repository with main branch"
+        - "README.md with project overview"
+        - "GitHub repository setup"
+        - "Branch protection rules"
+    
+    - id: "setup_development_environment"
+      name: "Configure development environment"
+      description: "Set up development tools and dependencies"
+      priority: "P0"
+      phase: "Foundation"
+      estimated_hours: 4
+      dependencies: ["setup_repository"]
+      deliverables:
+        - "Node.js and npm setup"
+        - "React Native CLI installation"
+        - "Xcode and iOS Simulator"
+        - "Cursor IDE configuration"
+    
+    - id: "create_orchestrator_contracts"
+      name: "Create orchestrator contracts"
+      description: "Set up JTBD.yml, actions.yml, orchestration.yml, gates.yml"
+      priority: "P0"
+      phase: "Foundation"
+      estimated_hours: 3
+      dependencies: ["setup_repository"]
+      deliverables:
+        - "JTBD.yml contract"
+        - "actions.yml contract"
+        - "orchestration.yml contract"
+        - "gates.yml contract"
+
+  # Phase 3: Presets & Schema Actions
+  design_system:
+    - id: "setup_ui_design_system"
+      name: "Create UI design system"
+      description: "Define design tokens, colors, typography, spacing"
+      priority: "P1"
+      phase: "Design"
+      estimated_hours: 6
+      dependencies: ["setup_development_environment"]
+      deliverables:
+        - "Design token definitions"
+        - "Color palette and theme"
+        - "Typography system"
+        - "Component library setup"
+        - "Dark theme implementation"
+    
+    - id: "create_task_card_design"
+      name: "Design task card component"
+      description: "Create task card UI with time estimates and status"
+      priority: "P1"
+      phase: "Design"
+      estimated_hours: 4
+      dependencies: ["setup_ui_design_system"]
+      deliverables:
+        - "Task card component design"
+        - "Status indicators (pending, in-progress, completed)"
+        - "Time estimate display"
+        - "Responsive layout"
+
+  backend_schema:
+    - id: "setup_strapi_project"
+      name: "Set up Strapi CMS project"
+      description: "Initialize Strapi backend with database"
+      priority: "P1"
+      phase: "Design"
+      estimated_hours: 4
+      dependencies: ["setup_development_environment"]
+      deliverables:
+        - "Strapi project initialization"
+        - "PostgreSQL database setup"
+        - "Basic Strapi configuration"
+        - "Admin panel access"
+    
+    - id: "create_data_schema"
+      name: "Design and implement data schema"
+      description: "Create TaskList and Task models with relationships"
+      priority: "P1"
+      phase: "Design"
+      estimated_hours: 6
+      dependencies: ["setup_strapi_project"]
+      deliverables:
+        - "TaskList content type"
+        - "Task content type"
+        - "User relationships"
+        - "API endpoints configuration"
+        - "Database migrations"
+
+  # Phase 4: Build MVP Actions
+  authentication:
+    - id: "implement_user_authentication"
+      name: "Implement user authentication"
+      description: "Set up login, signup, logout with JWT tokens"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 8
+      dependencies: ["create_data_schema"]
+      deliverables:
+        - "User registration flow"
+        - "User login flow"
+        - "JWT token management"
+        - "Password reset functionality"
+        - "Secure logout"
+    
+    - id: "setup_authentication_ui"
+      name: "Create authentication screens"
+      description: "Build login, signup, and profile screens"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 6
+      dependencies: ["setup_ui_design_system", "implement_user_authentication"]
+      deliverables:
+        - "Login screen"
+        - "Signup screen"
+        - "Profile screen"
+        - "Password reset screen"
+        - "Form validation"
+
+  core_features:
+    - id: "implement_task_list_management"
+      name: "Implement task list management"
+      description: "Create, read, update, delete task lists"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 10
+      dependencies: ["implement_user_authentication"]
+      deliverables:
+        - "Task list creation"
+        - "Task list listing"
+        - "Task list editing"
+        - "Task list deletion"
+        - "List sharing functionality"
+    
+    - id: "implement_task_management"
+      name: "Implement task management"
+      description: "Create, read, update, delete tasks with time estimates"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 12
+      dependencies: ["implement_task_list_management"]
+      deliverables:
+        - "Task creation with time estimates"
+        - "Task editing and updates"
+        - "Task status management"
+        - "Task assignment"
+        - "Task deletion"
+    
+    - id: "implement_progress_tracking"
+      name: "Implement progress tracking"
+      description: "Track task completion and show progress"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 8
+      dependencies: ["implement_task_management"]
+      deliverables:
+        - "Task status updates"
+        - "Progress indicators"
+        - "Completion tracking"
+        - "Statistics display"
+        - "Progress visualization"
+
+  data_sync:
+    - id: "implement_data_synchronization"
+      name: "Implement data synchronization"
+      description: "Sync data between app and Strapi backend"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 10
+      dependencies: ["implement_task_management"]
+      deliverables:
+        - "Real-time data sync"
+        - "Offline capability"
+        - "Conflict resolution"
+        - "Error handling"
+        - "Sync status indicators"
+    
+    - id: "implement_offline_support"
+      name: "Implement offline support"
+      description: "Store data locally and sync when online"
+      priority: "P2"
+      phase: "Build"
+      estimated_hours: 8
+      dependencies: ["implement_data_synchronization"]
+      deliverables:
+        - "Local data storage"
+        - "Offline task management"
+        - "Sync queue management"
+        - "Connection status handling"
+        - "Data integrity checks"
+
+  # Phase 5: Quality Assurance Actions
+  testing:
+    - id: "implement_unit_tests"
+      name: "Implement unit tests"
+      description: "Create comprehensive unit test suite"
+      priority: "P3"
+      phase: "Quality"
+      estimated_hours: 12
+      dependencies: ["implement_offline_support"]
+      deliverables:
+        - "Component unit tests"
+        - "Service layer tests"
+        - "Utility function tests"
+        - "Test coverage reporting"
+        - "Automated test execution"
+    
+    - id: "implement_integration_tests"
+      name: "Implement integration tests"
+      description: "Test API integration and data flow"
+      priority: "P3"
+      phase: "Quality"
+      estimated_hours: 8
+      dependencies: ["implement_unit_tests"]
+      deliverables:
+        - "API integration tests"
+        - "Data flow tests"
+        - "Authentication tests"
+        - "Sync functionality tests"
+        - "Error scenario tests"
+    
+    - id: "implement_e2e_tests"
+      name: "Implement end-to-end tests"
+      description: "Test complete user workflows"
+      priority: "P3"
+      phase: "Quality"
+      estimated_hours: 10
+      dependencies: ["implement_integration_tests"]
+      deliverables:
+        - "User workflow tests"
+        - "Authentication flow tests"
+        - "Task management flow tests"
+        - "Sync flow tests"
+        - "Error handling tests"
+
+  quality_assurance:
+    - id: "perform_bug_fixes"
+      name: "Perform bug fixes and optimization"
+      description: "Fix identified bugs and optimize performance"
+      priority: "P3"
+      phase: "Quality"
+      estimated_hours: 16
+      dependencies: ["implement_e2e_tests"]
+      deliverables:
+        - "Bug identification and fixes"
+        - "Performance optimization"
+        - "Memory usage optimization"
+        - "UI/UX improvements"
+        - "Accessibility enhancements"
+    
+    - id: "implement_accessibility"
+      name: "Implement accessibility features"
+      description: "Ensure app is accessible to all users"
+      priority: "P3"
+      phase: "Quality"
+      estimated_hours: 6
+      dependencies: ["perform_bug_fixes"]
+      deliverables:
+        - "Screen reader support"
+        - "Keyboard navigation"
+        - "High contrast support"
+        - "VoiceOver compatibility"
+        - "Accessibility testing"
+
+  # Phase 6: Release Actions
+  deployment:
+    - id: "setup_ios_build"
+      name: "Set up iOS build configuration"
+      description: "Configure iOS app for production build"
+      priority: "P4"
+      phase: "Release"
+      estimated_hours: 6
+      dependencies: ["implement_accessibility"]
+      deliverables:
+        - "iOS build configuration"
+        - "Code signing setup"
+        - "App store metadata"
+        - "Build automation"
+        - "Version management"
+    
+    - id: "setup_testflight"
+      name: "Set up TestFlight for beta testing"
+      description: "Configure TestFlight for internal testing"
+      priority: "P4"
+      phase: "Release"
+      estimated_hours: 4
+      dependencies: ["setup_ios_build"]
+      deliverables:
+        - "TestFlight configuration"
+        - "Beta testing setup"
+        - "Internal testing group"
+        - "Beta app distribution"
+        - "Feedback collection"
+    
+    - id: "deploy_backend_production"
+      name: "Deploy backend to production"
+      description: "Deploy Strapi backend to production hosting"
+      priority: "P4"
+      phase: "Release"
+      estimated_hours: 4
+      dependencies: ["setup_ios_build"]
+      deliverables:
+        - "Production Strapi deployment"
+        - "Database migration"
+        - "Environment configuration"
+        - "SSL certificate setup"
+        - "Monitoring configuration"
+    
+    - id: "prepare_app_store_submission"
+      name: "Prepare App Store submission"
+      description: "Prepare app for App Store review and submission"
+      priority: "P4"
+      phase: "Release"
+      estimated_hours: 8
+      dependencies: ["setup_testflight", "deploy_backend_production"]
+      deliverables:
+        - "App Store assets"
+        - "App description and keywords"
+        - "Screenshots and previews"
+        - "Privacy policy"
+        - "App Store submission"
+
+# Action Dependencies
+dependencies:
+  critical_path:
+    - "setup_repository"
+    - "setup_development_environment"
+    - "setup_strapi_project"
+    - "create_data_schema"
+    - "implement_user_authentication"
+    - "implement_task_list_management"
+    - "implement_task_management"
+    - "implement_data_synchronization"
+    - "implement_unit_tests"
+    - "setup_ios_build"
+    - "prepare_app_store_submission"
+  
+  parallel_tracks:
+    - track_1: ["setup_ui_design_system", "create_task_card_design"]
+    - track_2: ["setup_strapi_project", "create_data_schema"]
+    - track_3: ["implement_user_authentication", "setup_authentication_ui"]
+    - track_4: ["implement_task_list_management", "implement_task_management"]
+
+# Resource Requirements
+resources:
+  development:
+    - "Solo developer with Cursor AI assistance"
+    - "Mac with Xcode for iOS development"
+    - "Node.js and React Native development environment"
+    - "Strapi hosting service"
+    - "PostgreSQL database"
+  
+  testing:
+    - "iOS Simulator for development testing"
+    - "Physical iOS device for real testing"
+    - "TestFlight for beta testing"
+    - "Automated testing tools"
+  
+  deployment:
+    - "Apple Developer Program membership"
+    - "Strapi cloud hosting"
+    - "Domain and SSL certificate"
+    - "App Store Connect access"
+
+# Quality Gates
+quality_gates:
+  code_quality:
+    - "70%+ test coverage"
+    - "ESLint and Prettier compliance"
+    - "TypeScript strict mode"
+    - "No critical security vulnerabilities"
+  
+  performance:
+    - "App launch time <3 seconds"
+    - "API response time <1 second"
+    - "Memory usage <100MB"
+    - "Battery usage optimization"
+  
+  user_experience:
+    - "Intuitive navigation"
+    - "Accessible design (WCAG 2.1 AA)"
+    - "Error-free user flows"
+    - "Responsive design"
+  
+  deployment:
+    - "Successful iOS build"
+    - "TestFlight distribution"
+    - "Production backend deployment"
+    - "App Store submission ready"
