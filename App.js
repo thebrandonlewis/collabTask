@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/**
+ * CollabTask - Shared Task Management for Teams
+ * 
+ * Main App component with navigation and state management
+ */
 
-export default function App() {
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { registerRootComponent } from 'expo';
+import SimpleApp from './src/screens/SimpleApp';
+
+const App = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <SimpleApp />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
+
+export default App;
+
+// Register the main component
+registerRootComponent(App);
