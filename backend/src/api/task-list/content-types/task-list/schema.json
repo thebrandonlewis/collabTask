@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "task_lists",
+  "info": {
+    "singularName": "task-list",
+    "pluralName": "task-lists",
+    "displayName": "Task List",
+    "description": "A collection of tasks organized by users"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "description": {
+      "type": "text"
+    },
+    "isPublic": {
+      "type": "boolean",
+      "default": false
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "taskLists"
+    },
+    "collaborators": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "collaboratedTaskLists"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "taskList"
+    }
+  }
+}

@@ -1,0 +1,178 @@
+# CollabTask Job-to-be-Done Contract
+# Strategic Planning → JTBD.yml Mapping
+
+project:
+  name: "CollabTask"
+  description: "Shared task management for teams with time estimates and progress tracking"
+  version: "1.0.0"
+  status: "strategic_planning_complete"
+
+# Goals from Strategic Planning
+goals:
+  primary:
+    - "Solve the problem of teams losing track of who's doing what, by when"
+    - "Provide shared task lists with clear time estimates and progress tracking"
+    - "Enable seamless collaboration between iOS app and Strapi backend"
+    - "Serve busy students, small team leads, freelancers, and families"
+
+  secondary:
+    - "Create intuitive, accessible user experience"
+    - "Ensure reliable data synchronization"
+    - "Support offline capability"
+    - "Enable real-time collaboration"
+
+# Non-goals (Out of Scope for MVP)
+non_goals:
+  - "Enterprise-level project management features"
+  - "Advanced analytics and reporting"
+  - "Third-party integrations"
+  - "Web application (iOS only for MVP)"
+  - "Android support (iOS only for MVP)"
+  - "Kanban board view"
+  - "Calendar integrations"
+  - "Offline-first architecture"
+
+# Target Audiences from User Personas
+audiences:
+  primary:
+    - name: "Busy Students"
+      description: "College students managing group projects with deadlines"
+      size: "Medium (college student population)"
+      needs: ["Group project coordination", "Deadline management", "Task distribution"]
+    
+    - name: "Small Team Leads"
+      description: "Team managers overseeing 3-8 person teams"
+      size: "Medium (small business managers)"
+      needs: ["Delegation tracking", "Progress visibility", "Simple task management"]
+    
+    - name: "Freelancers/Contractors"
+      description: "Independent workers coordinating with clients"
+      size: "Large (gig economy workers)"
+      needs: ["Client communication", "Time tracking", "Deliverable management"]
+    
+    - name: "Families/Couples"
+      description: "Households managing shared responsibilities"
+      size: "Large (household population)"
+      needs: ["Household chore coordination", "Shared planning", "Responsibility tracking"]
+
+  secondary:
+    - name: "Remote Teams"
+      description: "Distributed teams needing coordination"
+    - name: "Project Managers"
+      description: "PMs managing small to medium projects"
+
+# Constraints from Strategic Planning
+constraints:
+  technical:
+    - "iOS only (no Android for MVP)"
+    - "React Native + SwiftUI for native feel"
+    - "Strapi CMS for backend"
+    - "PostgreSQL database"
+    - "JWT authentication"
+  
+  business:
+    - "MVP must be completed in 6 weeks"
+    - "Budget: Solo developer with AI assistance"
+    - "Quality: 70%+ test coverage"
+    - "Performance: <3s app launch, <1s API response"
+  
+  user:
+    - "Must work offline with sync capability"
+    - "Must be accessible (WCAG 2.1 AA)"
+    - "Must support real-time collaboration"
+    - "Must be intuitive for non-technical users"
+
+# Success Metrics from Strategic Planning
+success_metrics:
+  adoption:
+    - "Sign-ups: # of new users in first 30 days"
+    - "Activation: % of users who create first task list"
+    - "Onboarding: % of users who complete setup flow"
+  
+  engagement:
+    - "Task Creation: Avg. tasks created per active user per week"
+    - "List Usage: Avg. task lists created per user"
+    - "Completion Rate: % of tasks marked as completed"
+    - "Session Duration: Avg. time spent in app per session"
+  
+  retention:
+    - "Weekly Retention: % of users returning weekly"
+    - "Monthly Retention: % of users returning monthly"
+    - "Churn Rate: % of users who stop using the app"
+  
+  reliability:
+    - "API Uptime: Strapi backend availability (>95%)"
+    - "App Crash Rate: Crash-free sessions (>95%)"
+    - "Sync Success: % of successful data syncs"
+    - "Performance: App load time (<3 seconds)"
+  
+  quality:
+    - "Unit Test Coverage: ≥70%"
+    - "User Satisfaction: App store rating ≥4.0"
+    - "Bug Reports: <5 critical bugs per month"
+    - "Support Tickets: <10% of users need support"
+
+# Project Ownership
+owner:
+  name: "CollabTask Development Team"
+  role: "Product Owner"
+  email: "team@collabtask.app"
+
+approvers:
+  - name: "Technical Lead"
+    role: "Architecture approval"
+  - name: "Product Manager"
+    role: "Feature approval"
+  - name: "Quality Assurance"
+    role: "Quality gate approval"
+
+# Risk Assessment
+risks:
+  high:
+    - "Technical complexity of real-time sync"
+    - "iOS App Store approval process"
+    - "Strapi backend scalability"
+  
+  medium:
+    - "User adoption in competitive market"
+    - "Data synchronization conflicts"
+    - "Performance on older iOS devices"
+  
+  low:
+    - "Authentication security"
+    - "UI/UX design complexity"
+    - "Testing coverage requirements"
+
+# Dependencies
+dependencies:
+  external:
+    - "Apple Developer Program membership"
+    - "Strapi hosting service"
+    - "PostgreSQL database service"
+    - "iOS development tools (Xcode)"
+  
+  internal:
+    - "Strategic planning completion"
+    - "Technical architecture approval"
+    - "UI/UX design system"
+    - "Development environment setup"
+
+# Timeline from Implementation Planning
+timeline:
+  phase_0_2: "Week 1 - Foundation"
+  phase_3: "Week 2 - Presets & Schema"
+  phase_4: "Week 3-4 - Build MVP"
+  phase_5: "Week 5 - Quality Assurance"
+  phase_6: "Week 6 - Release Preparation"
+  
+  total_duration: "6 weeks"
+  mvp_completion: "Week 4"
+  production_ready: "Week 6"
+
+# Budget Constraints
+budget:
+  development: "Solo developer with AI assistance"
+  hosting: "Strapi cloud hosting (~$20-50/month)"
+  app_store: "Apple Developer Program ($99/year)"
+  tools: "Free tier tools (GitHub, Cursor, etc.)"
+  total_monthly: "<$100/month operational costs"
